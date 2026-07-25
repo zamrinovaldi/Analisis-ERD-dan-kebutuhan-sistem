@@ -288,9 +288,25 @@
             transform: translateY(0);
         }
 
+        .credentials-hint-card {
+            padding: 14px 18px;
+            background: #f8fafc;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .credentials-hint-card:hover {
+            background: #f1f5f9;
+            border-color: #6366f1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.12);
+        }
+
         .footer-security {
-            margin-top: 2rem;
-            padding-top: 1.25rem;
+            margin-top: 1.75rem;
+            padding-top: 1rem;
             border-top: 1px solid #f1f5f9;
             display: flex;
             align-items: center;
@@ -412,6 +428,21 @@
                                 </button>
                             </form>
 
+                            <!-- Credentials Hint Box -->
+                            <div class="credentials-hint-card mt-4" id="autoFillBtn">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa-solid fa-key mr-2" style="color: #6366f1;"></i>
+                                        <strong style="font-size: 0.825rem; color: #1e293b;">Akun Default (Klik untuk Isi Otomatis):</strong>
+                                    </div>
+                                    <span style="font-size: 0.7rem; font-weight: 700; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 20px;">Auto-Fill <i class="fa-solid fa-wand-magic-sparkles ml-1"></i></span>
+                                </div>
+                                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.6; padding-left: 22px;">
+                                    Email / Username: <strong style="color: #0f172a;">admin</strong> <span class="text-muted">(atau adminhotel)</span><br>
+                                    Password: <strong style="color: #0f172a;">admin</strong> <span class="text-muted">(atau Hotel404#2026)</span>
+                                </div>
+                            </div>
+
                             <div class="footer-security">
                                 <i class="fa-solid fa-shield-halved"></i>
                                 <span>Koneksi Terenkripsi & Aman</span>
@@ -440,6 +471,16 @@
                     pwdField.attr('type', 'password');
                     icon.removeClass('fa-eye-slash').addClass('fa-eye');
                 }
+            });
+
+            // Auto-fill interaction when clicking credential card
+            $('#autoFillBtn').on('click', function() {
+                $('#inputEmail').val('admin');
+                $('#inputPassword').val('admin');
+                $(this).css('border-color', '#10b981').css('background', '#f0fdf4');
+                setTimeout(function() {
+                    $('#autoFillBtn').css('border-color', '#cbd5e1').css('background', '#f8fafc');
+                }, 1000);
             });
         });
     </script>
