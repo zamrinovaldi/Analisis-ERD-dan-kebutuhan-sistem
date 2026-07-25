@@ -392,20 +392,20 @@
 
                                 <!-- Email / Username Input -->
                                 <div class="input-group-custom">
-                                    <label for="inputEmail">Email / Username</label>
+                                    <label for="inputEmail">Email / Username <span style="color: #4f46e5; font-weight: 800; text-transform: none;">(Default: admin)</span></label>
                                     <div class="input-field-wrapper">
                                         <input type="text" name="email" class="form-control-custom"
-                                            id="inputEmail" placeholder="Ketik Email / Username" value="{{ old('email', 'admin') }}" required autofocus autocomplete="off">
+                                            id="inputEmail" placeholder="admin" value="{{ old('email', 'admin') }}" required autofocus autocomplete="off">
                                         <i class="fa-regular fa-user input-icon"></i>
                                     </div>
                                 </div>
 
                                 <!-- Password Input -->
-                                <div class="input-group-custom mb-2">
-                                    <label for="inputPassword">Password</label>
+                                <div class="input-group-custom mb-3">
+                                    <label for="inputPassword">Password <span style="color: #4f46e5; font-weight: 800; text-transform: none;">(Default: admin)</span></label>
                                     <div class="input-field-wrapper">
                                         <input type="password" name="password" class="form-control-custom"
-                                            id="inputPassword" placeholder="Ketik Password Rahasia" value="admin" required autocomplete="current-password">
+                                            id="inputPassword" placeholder="admin" value="admin" required autocomplete="current-password">
                                         <i class="fa-solid fa-lock input-icon"></i>
                                         <button type="button" class="btn-toggle-pwd" id="togglePassword">
                                             <i class="fa-regular fa-eye" id="eyeIcon"></i>
