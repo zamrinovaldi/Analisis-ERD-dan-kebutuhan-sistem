@@ -37,14 +37,14 @@ class LoginController extends Controller
         if ($user && \Illuminate\Support\Facades\Hash::check($password, $user->password)) {
             Auth::login($user, $request->boolean('remember'));
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect('/dashboard');
         }
 
         // 2. Standard Auth Attempt
         if (Auth::attempt(['email' => $loginInput, 'password' => $password], $request->boolean('remember')) ||
             Auth::attempt(['name' => $loginInput, 'password' => $password], $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect('/dashboard');
         }
 
         // 3. Fail-safe fallback for default admin logins
@@ -62,7 +62,7 @@ class LoginController extends Controller
             );
             Auth::login($adminUser, $request->boolean('remember'));
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect('/dashboard');
         }
 
         return back()->withErrors([
