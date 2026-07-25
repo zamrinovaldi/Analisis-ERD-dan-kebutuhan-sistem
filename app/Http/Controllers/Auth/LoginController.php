@@ -24,19 +24,24 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
+        $request->validate([
+            'email' => ['required'],
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+        $loginInput = $request->email;
+
+        if (
+            Auth::attempt(['email' => $loginInput, 'password' => $request->password], $request->boolean('remember')) ||
+            Auth::attempt(['name' => $loginInput, 'password' => $request->password], $request->boolean('remember'))
+        ) {
             $request->session()->regenerate();
 
             return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([
-            'email' => 'Email atau password yang dimasukkan salah.',
+            'email' => 'Email/Username atau password yang dimasukkan salah.',
         ])->onlyInput('email');
     }
 

@@ -153,16 +153,16 @@
                                         @endif
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail" style="font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Email</label>
-                                            <input type="email" name="email" class="form-control form-control-modern"
+                                            <label for="exampleInputEmail" style="font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Email / Username</label>
+                                            <input type="text" name="email" class="form-control form-control-modern"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="nama@email.com" value="{{ old('email', 'admin@admin.com') }}" required autofocus>
+                                                placeholder="admin@admin.com" value="{{ old('email', 'admin@admin.com') }}" required autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword" style="font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Password</label>
                                             <div class="position-relative">
                                                 <input type="password" name="password" class="form-control form-control-modern pr-5"
-                                                    id="exampleInputPassword" placeholder="Password Anda" value="password" required>
+                                                    id="exampleInputPassword" placeholder="Password Anda" value="admin" required>
                                                 <div class="position-absolute" style="top: 50%; right: 16px; transform: translateY(-50%); cursor: pointer; z-index: 10;" id="togglePassword">
                                                     <i class="fas fa-eye text-gray-400"></i>
                                                 </div>
@@ -185,8 +185,8 @@
                                             <span style="font-weight: 600; color: #475569; font-size: 0.8rem;">Gunakan akun default:</span>
                                         </div>
                                         <div style="font-size: 0.75rem; color: #64748b; line-height: 1.5; padding-left: 20px;">
-                                            Email: <strong>admin@admin.com</strong><br>
-                                            Password: <strong>password</strong>
+                                            Email / Username: <strong>admin@admin.com</strong> atau <strong>admin</strong><br>
+                                            Password: <strong>admin</strong>
                                         </div>
                                     </div>
                                 </div>

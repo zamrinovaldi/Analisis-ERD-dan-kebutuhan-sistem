@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Buat User dengan role berbeda
+        // Buat User dengan role berbeda (Password diset 'admin' untuk semua)
         User::updateOrCreate(
             ['email' => 'admin@admin.com'],
             [
                 'name' => 'Admin Hotel',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('admin'),
                 'role' => 'admin',
             ]
         );
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'owner@admin.com'],
             [
                 'name' => 'Owner Hotel',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('admin'),
                 'role' => 'owner',
             ]
         );
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'staff@admin.com'],
             [
                 'name' => 'Staff Hotel',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('admin'),
                 'role' => 'staff',
             ]
         );

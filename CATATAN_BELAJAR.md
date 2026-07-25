@@ -138,5 +138,5 @@ public function penyewa()
 1. **Melihat Migrasi Database**: File migrasi untuk struktur tabel di atas dapat Anda lihat di folder [database/migrations/](file:///c:/laragon/www/Analisis-ERD-dan-kebutuhan-sistem/database/migrations).
 2. **Melihat Seeders (Data Awal)**: Untuk mengetahui bagaimana data simulasi dibuat, cek file [DatabaseSeeder.php](file:///c:/laragon/www/Analisis-ERD-dan-kebutuhan-sistem/database/seeders/DatabaseSeeder.php).
 3. **Membuka Dashboard**: Buka link browser [http://analisis-erd-dan-kebutuhan-sistem.test](http://analisis-erd-dan-kebutuhan-sistem.test) dan login menggunakan:
-   - **Email**: `admin@admin.com`
-   - **Password**: `password`
+   - **Email / Username**: `admin@admin.com` atau `admin`
+   - **Password**: `admin`
