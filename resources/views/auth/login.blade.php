@@ -373,18 +373,6 @@
                                 <p class="brand-subtitle">Silakan masuk menggunakan akun rahasia Anda.</p>
                             </div>
 
-                            <!-- Prominent Credentials Banner -->
-                            <div style="background: #e0e7ff; border: 2px dashed #6366f1; border-radius: 16px; padding: 14px 18px; margin-bottom: 1.5rem; text-align: center;">
-                                <div style="font-size: 0.85rem; font-weight: 800; color: #3730a3; margin-bottom: 6px; letter-spacing: 0.5px;">
-                                    <i class="fa-solid fa-key mr-1"></i> KREDENSIAL AKSES MASUK MANAGER & ADMIN:
-                                </div>
-                                <div style="font-size: 0.95rem; color: #1e1b4b; font-weight: 600;">
-                                    Username: <strong style="color: #4f46e5; font-size: 1.1rem; background: #ffffff; padding: 2px 10px; border-radius: 8px; border: 1px solid #c7d2fe; font-family: monospace;">admin</strong>
-                                    &nbsp;|&nbsp;
-                                    Password: <strong style="color: #4f46e5; font-size: 1.1rem; background: #ffffff; padding: 2px 10px; border-radius: 8px; border: 1px solid #c7d2fe; font-family: monospace;">admin</strong>
-                                </div>
-                            </div>
-
                             <form action="{{ url('/login') }}" method="POST">
                                 @csrf
                                 
@@ -413,7 +401,7 @@
                                 </div>
 
                                 <!-- Password Input -->
-                                <div class="input-group-custom">
+                                <div class="input-group-custom mb-2">
                                     <label for="inputPassword">Password</label>
                                     <div class="input-field-wrapper">
                                         <input type="password" name="password" class="form-control-custom"
@@ -423,6 +411,14 @@
                                             <i class="fa-regular fa-eye" id="eyeIcon"></i>
                                         </button>
                                     </div>
+                                </div>
+
+                                <!-- Text Username & Password langsung di bawah Password -->
+                                <div class="p-2 mb-3 text-center" style="background: #e0e7ff; border: 1px dashed #6366f1; border-radius: 10px; font-size: 0.825rem; color: #1e1b4b; font-weight: 600;">
+                                    <i class="fa-solid fa-key mr-1" style="color: #4f46e5;"></i>
+                                    Username: <strong style="color: #4f46e5; background: #ffffff; padding: 1px 6px; border-radius: 4px; font-family: monospace;">admin</strong> 
+                                    &nbsp;|&nbsp; 
+                                    Password: <strong style="color: #4f46e5; background: #ffffff; padding: 1px 6px; border-radius: 4px; font-family: monospace;">admin</strong>
                                 </div>
 
                                 <!-- Remember Me -->
