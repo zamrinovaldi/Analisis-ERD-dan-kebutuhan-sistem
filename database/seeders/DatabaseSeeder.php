@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Buat User Admin dengan kredensial rahasia baru
+        // Buat User Admin Utama Rahasia
         User::updateOrCreate(
             ['email' => 'admin@hotel404.com'],
             [
@@ -25,6 +25,17 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        // Buat User Admin Alternatif 1 (admin / admin)
+        User::updateOrCreate(
+            ['email' => 'admin@admin.com'],
+            [
+                'name' => 'admin',
+                'password' => bcrypt('admin'),
+                'role' => 'admin',
+            ]
+        );
+
+        // Buat User Owner & Staff
         User::updateOrCreate(
             ['email' => 'owner@hotel404.com'],
             [
