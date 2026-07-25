@@ -25,12 +25,12 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // Buat User Admin Alternatif 1 (admin / admin)
+        // Buat User Admin Default (admin@admin.com / password)
         User::updateOrCreate(
             ['email' => 'admin@admin.com'],
             [
                 'name' => 'admin',
-                'password' => bcrypt('admin'),
+                'password' => bcrypt('password'),
                 'role' => 'admin',
             ]
         );
