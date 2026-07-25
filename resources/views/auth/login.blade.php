@@ -436,13 +436,17 @@
                                 </button>
                             </form>
 
-                            <!-- Credentials Hint Box -->
-                            <div class="credentials-hint-card mt-4" id="autoFillBtn">
-                                <button type="button" class="btn btn-block font-weight-bold py-2 mb-2" style="border-radius: 12px; background: #e0e7ff; color: #4338ca; border: 1.5px solid #c7d2fe; font-size: 0.85rem; cursor: pointer;">
-                                    <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Klik Untuk Isikan Username & Password Otomatis
-                                </button>
-                                <div style="font-size: 0.8rem; color: #475569; text-align: center;">
-                                    Username: <strong style="color: #0f172a;">admin</strong> | Password: <strong style="color: #0f172a;">admin</strong>
+                            <!-- Prominent Credentials Box under Masuk ke Dashboard -->
+                            <div id="autoFillBtn" style="margin-top: 1.5rem; margin-bottom: 1.25rem; background: #e0e7ff; border: 2px dashed #6366f1; border-radius: 16px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.2s ease;">
+                                <div style="font-size: 0.85rem; font-weight: 800; color: #3730a3; margin-bottom: 8px; letter-spacing: 0.5px;">
+                                    <i class="fa-solid fa-key mr-1"></i> AKUN DEFAULT BISA LANGSUNG MASUK:
+                                </div>
+                                <div style="font-size: 0.875rem; color: #1e1b4b; background: #ffffff; padding: 10px 14px; border-radius: 12px; border: 1px solid #c7d2fe; display: block; font-weight: 600;">
+                                    Email / Username: <strong style="color: #4f46e5; font-family: monospace;">admin@admin.com</strong> <span style="color: #64748b; font-weight: 500;">(atau admin)</span><br>
+                                    Password: <strong style="color: #4f46e5; font-family: monospace;">password</strong> <span style="color: #64748b; font-weight: 500;">(atau admin)</span>
+                                </div>
+                                <div style="font-size: 0.75rem; color: #4338ca; font-weight: 700; margin-top: 8px;">
+                                    <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Klik Kotak Ini Untuk Isikan Otomatis
                                 </div>
                             </div>
 
