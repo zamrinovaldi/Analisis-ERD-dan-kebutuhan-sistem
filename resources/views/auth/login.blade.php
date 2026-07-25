@@ -156,13 +156,13 @@
                                             <label for="exampleInputEmail" style="font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Email / Username</label>
                                             <input type="text" name="email" class="form-control form-control-modern"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="admin@admin.com" value="{{ old('email', 'admin@admin.com') }}" required autofocus>
+                                                placeholder="Masukkan Email atau Username" value="{{ old('email') }}" required autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword" style="font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Password</label>
                                             <div class="position-relative">
                                                 <input type="password" name="password" class="form-control form-control-modern pr-5"
-                                                    id="exampleInputPassword" placeholder="Password Anda" value="admin" required>
+                                                    id="exampleInputPassword" placeholder="Masukkan Password Anda" required>
                                                 <div class="position-absolute" style="top: 50%; right: 16px; transform: translateY(-50%); cursor: pointer; z-index: 10;" id="togglePassword">
                                                     <i class="fas fa-eye text-gray-400"></i>
                                                 </div>
@@ -178,17 +178,6 @@
                                             Masuk
                                         </button>
                                     </form>
-                                    <div class="divider"></div>
-                                    <div class="default-credentials text-xs text-muted">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <i class="fas fa-info-circle mr-2" style="color: #4f46e5;"></i>
-                                            <span style="font-weight: 600; color: #475569; font-size: 0.8rem;">Gunakan akun default:</span>
-                                        </div>
-                                        <div style="font-size: 0.75rem; color: #64748b; line-height: 1.5; padding-left: 20px;">
-                                            Email / Username: <strong>admin@admin.com</strong> atau <strong>admin</strong><br>
-                                            Password: <strong>admin</strong>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

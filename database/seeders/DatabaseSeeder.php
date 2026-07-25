@@ -15,30 +15,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Buat User dengan role berbeda (Password diset 'admin' untuk semua)
+        // Buat User Admin dengan kredensial rahasia baru
         User::updateOrCreate(
-            ['email' => 'admin@admin.com'],
+            ['email' => 'admin@hotel404.com'],
             [
-                'name' => 'Admin Hotel',
-                'password' => bcrypt('admin'),
+                'name' => 'adminhotel',
+                'password' => bcrypt('Hotel404#2026'),
                 'role' => 'admin',
             ]
         );
 
         User::updateOrCreate(
-            ['email' => 'owner@admin.com'],
+            ['email' => 'owner@hotel404.com'],
             [
-                'name' => 'Owner Hotel',
-                'password' => bcrypt('admin'),
+                'name' => 'ownerhotel',
+                'password' => bcrypt('Hotel404#2026'),
                 'role' => 'owner',
             ]
         );
 
         User::updateOrCreate(
-            ['email' => 'staff@admin.com'],
+            ['email' => 'staff@hotel404.com'],
             [
-                'name' => 'Staff Hotel',
-                'password' => bcrypt('admin'),
+                'name' => 'staffhotel',
+                'password' => bcrypt('Hotel404#2026'),
                 'role' => 'staff',
             ]
         );
