@@ -24,15 +24,18 @@ class DashboardController extends Controller
         // Pendapatan kumulatif dari pembayaran berstatus 'Lunas'
         $totalPendapatan = Pembayaran::where('status', 'Lunas')->sum('jumlah');
 
-        // Pendapatan bulanan untuk tahun berjalan
-        $pendapatanBulanan = Pembayaran::where('status', 'Lunas')
+        // Pendapatan bulanan untuk tahun berjalan (Kompatibel 100% MySQL & SQLite)
+        $pembayaransCurrentYear = Pembayaran::where('status', 'Lunas')
             ->whereYear('tanggal_bayar', date('Y'))
-            ->selectRaw('MONTH(tanggal_bayar) as bulan, SUM(jumlah) as total')
-            ->groupBy('bulan')
-            ->orderBy('bulan')
-            ->get()
-            ->pluck('total', 'bulan')
-            ->all();
+            ->get();
+
+        $pendapatanBulanan = [];
+        foreach ($pembayaransCurrentYear as $p) {
+            if ($p->tanggal_bayar) {
+                $m = (int) date('n', strtotime($p->tanggal_bayar));
+                $pendapatanBulanan[$m] = ($pendapatanBulanan[$m] ?? 0) + (int) $p->jumlah;
+            }
+        }
 
         // Siapkan array data 12 bulan (akumulatif/kumulatif)
         $chartMonths = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
