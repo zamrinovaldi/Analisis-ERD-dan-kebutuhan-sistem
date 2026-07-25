@@ -17,34 +17,37 @@ class PembayaranSeeder extends Seeder
         $siti = Penyewa::where('nama', 'Siti Aminah')->first();
 
         if ($budi) {
-            Pembayaran::create([
-                'tanggal_bayar' => '2026-01-10',
-                'jumlah' => 500000,
-                'metode_pembayaran' => 'Tunai',
-                'status' => 'Lunas',
-                'penyewas_id' => $budi->id,
-                'keterangan' => 'Pembayaran bulan Januari',
-            ]);
+            Pembayaran::updateOrCreate(
+                ['penyewas_id' => $budi->id, 'keterangan' => 'Pembayaran bulan Januari'],
+                [
+                    'tanggal_bayar' => '2026-01-10',
+                    'jumlah' => 500000,
+                    'metode_pembayaran' => 'Tunai',
+                    'status' => 'Lunas',
+                ]
+            );
 
-            Pembayaran::create([
-                'tanggal_bayar' => '2026-02-10',
-                'jumlah' => 500000,
-                'metode_pembayaran' => 'Transfer',
-                'status' => 'Lunas',
-                'penyewas_id' => $budi->id,
-                'keterangan' => 'Pembayaran bulan Februari',
-            ]);
+            Pembayaran::updateOrCreate(
+                ['penyewas_id' => $budi->id, 'keterangan' => 'Pembayaran bulan Februari'],
+                [
+                    'tanggal_bayar' => '2026-02-10',
+                    'jumlah' => 500000,
+                    'metode_pembayaran' => 'Transfer',
+                    'status' => 'Lunas',
+                ]
+            );
         }
 
         if ($siti) {
-            Pembayaran::create([
-                'tanggal_bayar' => '2026-02-15',
-                'jumlah' => 800000,
-                'metode_pembayaran' => 'Transfer',
-                'status' => 'Lunas',
-                'penyewas_id' => $siti->id,
-                'keterangan' => 'Pembayaran bulan Februari pertama masuk',
-            ]);
+            Pembayaran::updateOrCreate(
+                ['penyewas_id' => $siti->id, 'keterangan' => 'Pembayaran bulan Februari pertama masuk'],
+                [
+                    'tanggal_bayar' => '2026-02-15',
+                    'jumlah' => 800000,
+                    'metode_pembayaran' => 'Transfer',
+                    'status' => 'Lunas',
+                ]
+            );
         }
     }
 }

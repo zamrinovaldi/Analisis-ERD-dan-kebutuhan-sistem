@@ -48,7 +48,10 @@ class KamarSeeder extends Seeder
         }
 
         foreach ($kamars as $kamar) {
-            Kamar::create($kamar);
+            Kamar::updateOrCreate(
+                ['nomor_kamar' => $kamar['nomor_kamar']],
+                $kamar
+            );
         }
     }
 }
