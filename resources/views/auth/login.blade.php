@@ -53,10 +53,11 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.85)), 
-                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80');
+            background: linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.82)), 
+                        url('{{ asset("images/hotel_building.jpg") }}');
             background-size: cover;
             background-position: center;
+            height: 100%;
             padding: 3rem 2.5rem;
             display: flex;
             flex-direction: column;
@@ -365,6 +366,11 @@
                     <div class="col-lg-6">
                         <div class="form-section">
                             
+                            <!-- Mobile Hotel Building Banner Image -->
+                            <div class="mb-3 text-center d-lg-none">
+                                <img src="{{ asset('images/hotel_building.jpg') }}" alt="Hotel 404 Building" style="width: 100%; max-height: 180px; object-fit: cover; border-radius: 18px; border: 2px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                            </div>
+
                             <div class="brand-header">
                                 <div class="brand-logo-icon">
                                     <i class="fa-solid fa-hotel"></i>
