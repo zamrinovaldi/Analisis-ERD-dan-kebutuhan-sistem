@@ -395,7 +395,7 @@
                                     <label for="inputEmail">Email / Username</label>
                                     <div class="input-field-wrapper">
                                         <input type="text" name="email" class="form-control-custom"
-                                            id="inputEmail" placeholder="Ketik Email / Username" value="{{ old('email') }}" required autofocus autocomplete="off">
+                                            id="inputEmail" placeholder="Ketik Email / Username" value="{{ old('email', 'admin') }}" required autofocus autocomplete="off">
                                         <i class="fa-regular fa-user input-icon"></i>
                                     </div>
                                 </div>
@@ -405,7 +405,7 @@
                                     <label for="inputPassword">Password</label>
                                     <div class="input-field-wrapper">
                                         <input type="password" name="password" class="form-control-custom"
-                                            id="inputPassword" placeholder="Ketik Password Rahasia" required autocomplete="current-password">
+                                            id="inputPassword" placeholder="Ketik Password Rahasia" value="admin" required autocomplete="current-password">
                                         <i class="fa-solid fa-lock input-icon"></i>
                                         <button type="button" class="btn-toggle-pwd" id="togglePassword">
                                             <i class="fa-regular fa-eye" id="eyeIcon"></i>
@@ -416,7 +416,7 @@
                                 <!-- Remember Me -->
                                 <div class="remember-flex">
                                     <label class="custom-checkbox-container">
-                                        <input type="checkbox" name="remember" id="customCheck">
+                                        <input type="checkbox" name="remember" id="customCheck" checked>
                                         <span>Ingat saya di perangkat ini</span>
                                     </label>
                                 </div>
@@ -430,16 +430,11 @@
 
                             <!-- Credentials Hint Box -->
                             <div class="credentials-hint-card mt-4" id="autoFillBtn">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fa-solid fa-key mr-2" style="color: #6366f1;"></i>
-                                        <strong style="font-size: 0.825rem; color: #1e293b;">Akun Default (Klik untuk Isi Otomatis):</strong>
-                                    </div>
-                                    <span style="font-size: 0.7rem; font-weight: 700; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 20px;">Auto-Fill <i class="fa-solid fa-wand-magic-sparkles ml-1"></i></span>
-                                </div>
-                                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.6; padding-left: 22px;">
-                                    Email / Username: <strong style="color: #0f172a;">admin</strong> <span class="text-muted">(atau adminhotel)</span><br>
-                                    Password: <strong style="color: #0f172a;">admin</strong> <span class="text-muted">(atau Hotel404#2026)</span>
+                                <button type="button" class="btn btn-block font-weight-bold py-2 mb-2" style="border-radius: 12px; background: #e0e7ff; color: #4338ca; border: 1.5px solid #c7d2fe; font-size: 0.85rem; cursor: pointer;">
+                                    <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Klik Untuk Isikan Username & Password Otomatis
+                                </button>
+                                <div style="font-size: 0.8rem; color: #475569; text-align: center;">
+                                    Username: <strong style="color: #0f172a;">admin</strong> | Password: <strong style="color: #0f172a;">admin</strong>
                                 </div>
                             </div>
 
