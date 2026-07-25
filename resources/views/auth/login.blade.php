@@ -413,14 +413,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Text Username & Password langsung di bawah Password -->
-                                <div class="p-2 mb-3 text-center" style="background: #e0e7ff; border: 1px dashed #6366f1; border-radius: 10px; font-size: 0.825rem; color: #1e1b4b; font-weight: 600;">
-                                    <i class="fa-solid fa-key mr-1" style="color: #4f46e5;"></i>
-                                    Username: <strong style="color: #4f46e5; background: #ffffff; padding: 1px 6px; border-radius: 4px; font-family: monospace;">admin</strong> 
-                                    &nbsp;|&nbsp; 
-                                    Password: <strong style="color: #4f46e5; background: #ffffff; padding: 1px 6px; border-radius: 4px; font-family: monospace;">admin</strong>
-                                </div>
-
                                 <!-- Remember Me -->
                                 <div class="remember-flex">
                                     <label class="custom-checkbox-container">
