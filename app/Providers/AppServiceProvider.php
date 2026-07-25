@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         \Illuminate\Pagination\Paginator::useBootstrapFour();
 
-        if (config('app.env') === 'production') {
+        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) || config('app.env') === 'production' || !app()->runningInConsole()) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
     }
