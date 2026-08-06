@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <th>Harga Sewa</th>
-                        <td>: Rp {{ number_format($kamar->harga, 0, ',', '.') }} / bulan</td>
+                        <td>: Rp {{ number_format($kamar->harga, 0, ',', '.') }} / malam</td>
                     </tr>
                     <tr>
                         <th>Status</th>

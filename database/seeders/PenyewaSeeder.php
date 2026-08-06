@@ -25,6 +25,7 @@ class PenyewaSeeder extends Seeder
                     'pekerjaan' => 'Mahasiswa',
                     'kamars_id' => $kamar101->id,
                     'tanggal_masuk' => '2026-01-10',
+                    'tanggal_keluar' => '2026-01-12',
                 ]
             );
         }
@@ -38,6 +39,7 @@ class PenyewaSeeder extends Seeder
                     'pekerjaan' => 'Karyawan Swasta',
                     'kamars_id' => $kamar201->id,
                     'tanggal_masuk' => '2026-02-15',
+                    'tanggal_keluar' => '2026-02-17',
                 ]
             );
         }

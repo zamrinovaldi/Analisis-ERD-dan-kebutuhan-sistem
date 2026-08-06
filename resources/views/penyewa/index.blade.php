@@ -57,7 +57,8 @@
                         <th>Nama</th>
                         <th>No. HP</th>
                         <th>Kamar</th>
-                        <th>Tanggal Masuk</th>
+                        <th>Periode Menginap</th>
+                        <th>Durasi / Biaya</th>
                         <th>Pekerjaan</th>
                         <th style="width: 200px;">Aksi</th>
                     </tr>
@@ -77,8 +78,14 @@
                                     <span class="badge badge-secondary px-2 py-2">Belum Assign</span>
                                 @endif
                             </td>
-                            <td>{{ date('d M Y', strtotime($penyewa->tanggal_masuk)) }}</td>
-                            <td>{{ $penyewa->pekerjaan }}</td>
+                            <td>
+                                <span class="text-success"><i class="fas fa-sign-in-alt mr-1"></i></span> {{ date('d/m/Y', strtotime($penyewa->tanggal_masuk)) }}<br>
+                                <span class="text-danger"><i class="fas fa-sign-out-alt mr-1"></i></span> {{ date('d/m/Y', strtotime($penyewa->tanggal_keluar)) }}
+                            </td>
+                            <td>
+                                <span class="badge badge-primary px-2 py-1">{{ $penyewa->durasi_menginap }} Malam</span><br>
+                                <small class="text-success font-weight-bold">Rp {{ number_format($penyewa->total_biaya, 0, ',', '.') }}</small>
+                            </td>
                             <td>
                                 <a href="{{ url('/penyewa/' . $penyewa->id) }}" class="btn btn-info btn-sm" title="Detail & Pembayaran">
                                     <i class="fas fa-eye"></i> Detail

@@ -18,20 +18,10 @@ class PembayaranSeeder extends Seeder
 
         if ($budi) {
             Pembayaran::updateOrCreate(
-                ['penyewas_id' => $budi->id, 'keterangan' => 'Pembayaran bulan Januari'],
+                ['penyewas_id' => $budi->id, 'keterangan' => 'Pembayaran Sewa Kamar 101 (2 Malam)'],
                 [
                     'tanggal_bayar' => '2026-01-10',
-                    'jumlah' => 500000,
-                    'metode_pembayaran' => 'Tunai',
-                    'status' => 'Lunas',
-                ]
-            );
-
-            Pembayaran::updateOrCreate(
-                ['penyewas_id' => $budi->id, 'keterangan' => 'Pembayaran bulan Februari'],
-                [
-                    'tanggal_bayar' => '2026-02-10',
-                    'jumlah' => 500000,
+                    'jumlah' => 1000000,
                     'metode_pembayaran' => 'Transfer',
                     'status' => 'Lunas',
                 ]
@@ -40,10 +30,10 @@ class PembayaranSeeder extends Seeder
 
         if ($siti) {
             Pembayaran::updateOrCreate(
-                ['penyewas_id' => $siti->id, 'keterangan' => 'Pembayaran bulan Februari pertama masuk'],
+                ['penyewas_id' => $siti->id, 'keterangan' => 'Pembayaran Sewa Kamar 201 (2 Malam)'],
                 [
                     'tanggal_bayar' => '2026-02-15',
-                    'jumlah' => 800000,
+                    'jumlah' => 1600000,
                     'metode_pembayaran' => 'Transfer',
                     'status' => 'Lunas',
                 ]

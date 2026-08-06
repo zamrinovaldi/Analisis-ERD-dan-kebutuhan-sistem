@@ -47,12 +47,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="harga">Harga Sewa Bulanan (Rupiah) <span class="text-danger">*</span></label>
+                        <label for="harga">Harga Sewa Harian / Malam (Rupiah) <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Rp</span>
                             </div>
-                            <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" placeholder="Contoh: 500000" min="0" required>
+                            <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" placeholder="Contoh: 350000" min="0" required>
                         </div>
                         @error('harga')
                             <div class="text-danger small mt-1">{{ $message }}</div>

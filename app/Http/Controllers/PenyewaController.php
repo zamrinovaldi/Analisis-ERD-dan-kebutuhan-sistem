@@ -68,6 +68,7 @@ class PenyewaController extends Controller
             'pekerjaan' => 'required|string|max:255',
             'kamars_id' => 'required|exists:kamars,id',
             'tanggal_masuk' => 'required|date',
+            'tanggal_keluar' => 'required|date|after_or_equal:tanggal_masuk',
         ]);
 
         DB::transaction(function() use ($request) {
@@ -116,6 +117,7 @@ class PenyewaController extends Controller
             'pekerjaan' => 'required|string|max:255',
             'kamars_id' => 'required|exists:kamars,id',
             'tanggal_masuk' => 'required|date',
+            'tanggal_keluar' => 'required|date|after_or_equal:tanggal_masuk',
         ]);
 
         DB::transaction(function() use ($request, $penyewa) {

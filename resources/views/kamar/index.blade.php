@@ -64,7 +64,7 @@
                         <th style="width: 50px;">No</th>
                         <th>Nomor Kamar</th>
                         <th>Tipe Kamar</th>
-                        <th>Harga Sewa</th>
+                        <th>Harga Sewa / Malam</th>
                         <th>Status</th>
                         <th style="width: 200px;">Aksi</th>
                     </tr>
@@ -75,7 +75,7 @@
                             <td>{{ $kamars->firstItem() + $key }}</td>
                             <td><strong>{{ $kamar->nomor_kamar }}</strong></td>
                             <td>{{ $kamar->tipe_kamar }}</td>
-                            <td>Rp {{ number_format($kamar->harga, 0, ',', '.') }} / bulan</td>
+                            <td>Rp {{ number_format($kamar->harga, 0, ',', '.') }} / malam</td>
                             <td>
                                 @if($kamar->status == 'Tersedia')
                                     <span class="badge badge-success px-3 py-2">Tersedia</span>

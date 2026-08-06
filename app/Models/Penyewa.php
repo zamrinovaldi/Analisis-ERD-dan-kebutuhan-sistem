@@ -20,7 +20,29 @@ class Penyewa extends Model
         'pekerjaan',
         'kamars_id',
         'tanggal_masuk',
+        'tanggal_keluar',
     ];
+
+    /**
+     * Get the duration of stay (number of nights).
+     */
+    public function getDurasiMenginapAttribute()
+    {
+        $masuk = \Carbon\Carbon::parse($this->tanggal_masuk);
+        $keluar = \Carbon\Carbon::parse($this->tanggal_keluar);
+        return max(1, $masuk->diffInDays($keluar));
+    }
+
+    /**
+     * Get the total room rental cost based on duration.
+     */
+    public function getTotalBiayaAttribute()
+    {
+        if (!$this->kamar) {
+            return 0;
+        }
+        return $this->durasi_menginap * $this->kamar->harga;
+    }
 
     /**
      * Get the room (kamar) that the tenant occupies.

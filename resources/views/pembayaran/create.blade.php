@@ -33,10 +33,10 @@
                     <div class="form-group">
                         <label for="penyewas_id">Pilih Tamu <span class="text-danger">*</span></label>
                         <select name="penyewas_id" id="penyewas_id" class="form-control @error('penyewas_id') is-invalid @enderror" required>
-                            <option value="">-- Pilih Tamu --</option>
+                            <option value="" data-biaya="0">-- Pilih Tamu --</option>
                             @foreach($penyewas as $penyewa)
-                                <option value="{{ $penyewa->id }}" {{ (old('penyewas_id', $selectedPenyewaId) == $penyewa->id) ? 'selected' : '' }}>
-                                    {{ $penyewa->nama }} (Kamar {{ $penyewa->kamar ? $penyewa->kamar->nomor_kamar : '-' }} - Harga: Rp {{ number_format($penyewa->kamar ? $penyewa->kamar->harga : 0, 0, ',', '.') }})
+                                <option value="{{ $penyewa->id }}" data-biaya="{{ $penyewa->total_biaya }}" {{ (old('penyewas_id', $selectedPenyewaId) == $penyewa->id) ? 'selected' : '' }}>
+                                    {{ $penyewa->nama }} (Kamar {{ $penyewa->kamar ? $penyewa->kamar->nomor_kamar : '-' }} - {{ $penyewa->durasi_menginap }} Malam - Total Tarif: Rp {{ number_format($penyewa->total_biaya, 0, ',', '.') }})
                                 </option>
                             @endforeach
                         </select>
@@ -95,7 +95,7 @@
 
                     <div class="form-group">
                         <label for="keterangan">Keterangan / Catatan Tambahan</label>
-                        <textarea name="keterangan" id="keterangan" rows="3" class="form-control" placeholder="Contoh: Pembayaran Hotel Bulan Juli 2026">{{ old('keterangan') }}</textarea>
+                        <textarea name="keterangan" id="keterangan" rows="3" class="form-control" placeholder="Contoh: Pembayaran Sewa Tamu Mandiri">{{ old('keterangan') }}</textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">Simpan Transaksi</button>
@@ -104,4 +104,39 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        const tamuSelect = $('#penyewas_id');
+        const jumlahInput = $('#jumlah');
+        const keteranganInput = $('#keterangan');
+
+        function autofillPayment() {
+            const selectedOption = tamuSelect.find('option:selected');
+            const totalBiaya = parseInt(selectedOption.attr('data-biaya')) || 0;
+            const textInfo = selectedOption.text().trim();
+
+            if (tamuSelect.val() && totalBiaya > 0) {
+                // Prefill jumlah
+                jumlahInput.val(totalBiaya);
+                
+                // Set default keterangan jika kosong
+                if (keteranganInput.val() === '') {
+                    keteranganInput.val('Pembayaran Lunas untuk ' + textInfo.split('(')[0].trim());
+                }
+            } else {
+                jumlahInput.val('');
+            }
+        }
+
+        tamuSelect.on('change', autofillPayment);
+
+        // Pemicu awal jika ada pre-selected tamu
+        if (tamuSelect.val()) {
+            autofillPayment();
+        }
+    });
+</script>
 @endsection

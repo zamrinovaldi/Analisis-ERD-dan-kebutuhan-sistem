@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->foreignId('kamars_id')->constrained('kamars')->cascadeOnDelete();
             $table->date('tanggal_masuk');
+            $table->date('tanggal_keluar');
             $table->timestamps();
         });
     }

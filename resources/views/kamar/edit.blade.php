@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="harga">Harga Sewa Bulanan (Rupiah) <span class="text-danger">*</span></label>
+                        <label for="harga">Harga Sewa Harian / Malam (Rupiah) <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Rp</span>

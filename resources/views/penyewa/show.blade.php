@@ -36,15 +36,27 @@
                         <td>: {{ $penyewa->pekerjaan }}</td>
                     </tr>
                     <tr>
-                        <th>Tanggal Masuk</th>
+                        <th>Tanggal Check-in</th>
                         <td>: {{ date('d F Y', strtotime($penyewa->tanggal_masuk)) }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tanggal Check-out</th>
+                        <td>: {{ date('d F Y', strtotime($penyewa->tanggal_keluar)) }}</td>
+                    </tr>
+                    <tr>
+                        <th>Durasi Menginap</th>
+                        <td>: <span class="badge badge-primary px-2 py-1">{{ $penyewa->durasi_menginap }} Malam</span></td>
+                    </tr>
+                    <tr>
+                        <th>Total Biaya Kamar</th>
+                        <td>: <strong class="text-success">Rp {{ number_format($penyewa->total_biaya, 0, ',', '.') }}</strong></td>
                     </tr>
                     <tr>
                         <th>Kamar Ditempati</th>
                         <td>: 
                             @if($penyewa->kamar)
                                 <a href="{{ url('/kamar/' . $penyewa->kamar->id) }}" class="badge badge-info px-2 py-2">
-                                    Kamar {{ $penyewa->kamar->nomor_kamar }} ({{ $penyewa->kamar->tipe_kamar }})
+                                    Kamar {{ $penyewa->kamar->nomor_kamar }} ({{ $penyewa->kamar->tipe_kamar }} - Rp {{ number_format($penyewa->kamar->harga, 0, ',', '.') }}/malam)
                                 </a>
                             @else
                                 <span class="badge badge-secondary px-2 py-2">Tidak Ada Kamar</span>
