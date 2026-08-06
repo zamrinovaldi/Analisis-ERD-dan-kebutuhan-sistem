@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login - Hotel 404 Not Found</title>
+    <title>Login - Geshos 404 Not Found</title>
 
     <!-- Google Fonts & Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" type="text/css">
@@ -341,7 +341,7 @@
                             </div>
 
                             <div class="hero-content">
-                                <h2>Kelola Hotel Lebih Mudah & Modern</h2>
+                                <h2>Kelola Geshos Lebih Mudah & Modern</h2>
                                 <p>Sistem terintegrasi untuk pengelolaan kamar, penyewa, dan laporan transaksi realtime secara efisien.</p>
 
                                 <div class="hero-stats">
@@ -368,14 +368,14 @@
                             
                             <!-- Mobile Hotel Building Banner Image -->
                             <div class="mb-3 text-center d-lg-none">
-                                <img src="{{ asset('images/hotel_building.jpg') }}" alt="Hotel 404 Building" style="width: 100%; max-height: 180px; object-fit: cover; border-radius: 18px; border: 2px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                                <img src="{{ asset('images/geshos_building.jpg') }}" alt="Geshos Building" style="width: 100%; max-height: 180px; object-fit: cover; border-radius: 18px; border: 2px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
                             </div>
 
                             <div class="brand-header">
                                 <div class="brand-logo-icon">
-                                    <i class="fa-solid fa-hotel"></i>
+                                    <i class="fa-solid fa-home"></i>
                                 </div>
-                                <h1 class="brand-title">Hotel 404 Not Found</h1>
+                                <h1 class="brand-title">Geshos 404 Not Found</h1>
                                 <p class="brand-subtitle">Silakan masuk menggunakan akun rahasia Anda.</p>
                             </div>
 

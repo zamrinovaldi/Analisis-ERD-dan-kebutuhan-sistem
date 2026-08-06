@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
     
     // CRUD Routes
+    Route::get('/penyewa/kamar-tersedia', [\App\Http\Controllers\PenyewaController::class, 'getKamarTersedia']);
     Route::resource('kamar', \App\Http\Controllers\KamarController::class);
     Route::resource('penyewa', \App\Http\Controllers\PenyewaController::class);
     Route::resource('pembayaran', \App\Http\Controllers\PembayaranController::class);

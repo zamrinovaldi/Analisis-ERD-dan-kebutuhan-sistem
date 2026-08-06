@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Hotel 404 Not Found {{ date('Y') }}</span>
+            <span>Copyright &copy; Geshos 404 Not Found {{ date('Y') }}</span>
         </div>
     </div>
 </footer>

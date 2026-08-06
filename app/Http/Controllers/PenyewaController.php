@@ -160,4 +160,40 @@ class PenyewaController extends Controller
 
         return redirect('/penyewa')->with('success', 'Penyewa berhasil dihapus dan status kamar kembali Tersedia.');
     }
+
+    /**
+     * Get available rooms for a given check-in and check-out date range.
+     */
+    public function getKamarTersedia(Request $request)
+    {
+        $request->validate([
+            'tanggal_masuk' => 'required|date',
+            'tanggal_keluar' => 'required|date|after_or_equal:tanggal_masuk',
+            'exclude_penyewa_id' => 'nullable|integer',
+        ]);
+
+        $masuk = $request->tanggal_masuk;
+        $keluar = $request->tanggal_keluar;
+        $excludeId = $request->exclude_penyewa_id;
+
+        // Kamar berstatus Pemeliharaan tidak bisa dipesan sama sekali
+        $maintenanceRoomIds = Kamar::where('status', 'Pemeliharaan')->pluck('id');
+
+        // Kamar yang terisi pada rentang tanggal tersebut
+        $occupiedRoomIds = Penyewa::where(function($q) use ($masuk, $keluar) {
+                $q->where('tanggal_masuk', '<', $keluar)
+                  ->where('tanggal_keluar', '>', $masuk);
+            })
+            ->when($excludeId, function($q) use ($excludeId) {
+                $q->where('id', '!=', $excludeId);
+            })
+            ->pluck('kamars_id');
+
+        // Kamar yang tersedia
+        $kamars = Kamar::whereNotIn('id', $maintenanceRoomIds)
+            ->whereNotIn('id', $occupiedRoomIds)
+            ->get();
+
+        return response()->json($kamars);
+    }
 }

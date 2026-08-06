@@ -136,11 +136,14 @@
         const summaryDuration = $('#summary-duration');
         const summaryTotal = $('#summary-total');
 
+        let lastMasuk = '';
+        let lastKeluar = '';
+
         function formatRupiah(number) {
             return new Intl.NumberFormat('id-ID').format(number);
         }
 
-        function calculateSummary() {
+        function calculateSummaryOnly() {
             const selectedOption = kamarSelect.find('option:selected');
             const harga = parseInt(selectedOption.attr('data-harga')) || 0;
             const roomInfo = selectedOption.attr('data-info') || '';
@@ -152,6 +155,29 @@
                 summaryCard.slideUp();
                 return;
             }
+
+            const checkinDate = new Date(checkinVal);
+            const checkoutDate = new Date(checkoutVal);
+
+            // Hitung durasi (dalam hari/malam)
+            const diffTime = Math.abs(checkoutDate - checkinDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
+
+            const totalHarga = diffDays * harga;
+
+            summaryRoom.text(roomInfo);
+            summaryRate.text(formatRupiah(harga));
+            summaryDuration.text(diffDays + ' Malam');
+            summaryTotal.text(formatRupiah(totalHarga));
+            
+            summaryCard.slideDown();
+        }
+
+        function fetchAvailableRooms() {
+            const checkinVal = checkinInput.val();
+            const checkoutVal = checkoutInput.val();
+
+            if (!checkinVal || !checkoutVal) return;
 
             const checkinDate = new Date(checkinVal);
             let checkoutDate = new Date(checkoutVal);
@@ -174,28 +200,63 @@
                 checkoutDate = nextDay;
             }
 
-            // Hitung durasi (dalam hari/malam)
-            const diffTime = Math.abs(checkoutDate - checkinDate);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
+            const currentMasuk = checkinInput.val();
+            const currentKeluar = checkoutInput.val();
 
-            const totalHarga = diffDays * harga;
+            if (currentMasuk === lastMasuk && currentKeluar === lastKeluar) {
+                calculateSummaryOnly();
+                return;
+            }
 
-            summaryRoom.text(roomInfo);
-            summaryRate.text(formatRupiah(harga));
-            summaryDuration.text(diffDays + ' Malam');
-            summaryTotal.text(formatRupiah(totalHarga));
-            
-            summaryCard.slideDown();
+            lastMasuk = currentMasuk;
+            lastKeluar = currentKeluar;
+
+            const prevSelected = kamarSelect.val();
+
+            $.ajax({
+                url: "{{ url('/penyewa/kamar-tersedia') }}",
+                type: 'GET',
+                data: {
+                    tanggal_masuk: currentMasuk,
+                    tanggal_keluar: currentKeluar
+                    @if(isset($penyewa))
+                    , exclude_penyewa_id: {{ $penyewa->id }}
+                    @endif
+                },
+                success: function(rooms) {
+                    // Kosongkan select kecuali option pertama
+                    kamarSelect.find('option:not(:first)').remove();
+
+                    if (rooms.length === 0) {
+                        kamarSelect.append('<option value="" disabled>Tidak ada kamar tersedia pada tanggal ini</option>');
+                    } else {
+                        rooms.forEach(function(room) {
+                            const formattedHarga = new Intl.NumberFormat('id-ID').format(room.harga);
+                            const option = $('<option></option>')
+                                .val(room.id)
+                                .attr('data-harga', room.harga)
+                                .attr('data-info', 'Kamar ' + room.nomor_kamar + ' (' + room.tipe_kamar + ')')
+                                .text('Kamar ' + room.nomor_kamar + ' (' + room.tipe_kamar + ' - Rp ' + formattedHarga + ' / malam)');
+                            kamarSelect.append(option);
+                        });
+                    }
+
+                    // Kembalikan pilihan jika masih tersedia di data baru
+                    if (prevSelected) {
+                        kamarSelect.val(prevSelected);
+                    }
+                    
+                    calculateSummaryOnly();
+                }
+            });
         }
 
-        kamarSelect.on('change', calculateSummary);
-        checkinInput.on('change', calculateSummary);
-        checkoutInput.on('change', calculateSummary);
+        kamarSelect.on('change', calculateSummaryOnly);
+        checkinInput.on('change', fetchAvailableRooms);
+        checkoutInput.on('change', fetchAvailableRooms);
 
-        // Pemicu kalkulasi awal saat edit/preselect
-        if (kamarSelect.val()) {
-            calculateSummary();
-        }
+        // Pemicu pencarian awal untuk tanggal checkin/checkout default
+        fetchAvailableRooms();
     });
 </script>
 @endsection

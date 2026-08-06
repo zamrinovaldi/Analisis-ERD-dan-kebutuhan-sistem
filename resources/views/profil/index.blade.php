@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title', 'Profil Hotel')
+@section('title', 'Profil Geshos')
 
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Profil Hotel</h1>
+    <h1 class="h3 mb-0 text-gray-800">Profil Geshos</h1>
 </div>
 
 <div class="row">
@@ -15,12 +15,12 @@
             <div class="row no-gutters">
                 <div class="col-xl-6 col-lg-5">
                     <div class="position-relative h-100 min-vh-50" style="min-height: 380px;">
-                        <img src="{{ asset('img/hotel.png') }}" class="w-100 h-100 object-fit-cover position-absolute" alt="Hotel 404 Not Found" style="object-fit: cover; top: 0; left: 0;">
+                        <img src="{{ asset('img/hotel.png') }}" class="w-100 h-100 object-fit-cover position-absolute" alt="Geshos 404 Not Found" style="object-fit: cover; top: 0; left: 0;">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
                     <div class="card-body p-5">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-2">Boutique & Smart Hotel</div>
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-2">Boutique & Smart Geshos</div>
                         <h2 class="h2 font-weight-bold text-gray-900 mb-2">{{ $hotelInfo['nama'] }}</h2>
                         <p class="text-muted font-italic mb-4">"{{ $hotelInfo['tagline'] }}"</p>
                         

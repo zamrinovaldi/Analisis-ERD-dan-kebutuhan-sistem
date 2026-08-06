@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Sistem Manajemen Hotel">
-    <meta name="author" content="Hotel 404 Not Found">
+    <meta name="description" content="Sistem Manajemen Geshos">
+    <meta name="author" content="Geshos 404 Not Found">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Hotel 404 Not Found') - Admin Dashboard</title>
+    <title>@yield('title', 'Geshos 404 Not Found') - Admin Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" type="text/css">

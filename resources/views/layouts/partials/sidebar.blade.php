@@ -4,9 +4,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/dashboard') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-hotel"></i>
+            <i class="fas fa-home"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Hotel 404 Not Found</div>
+        <div class="sidebar-brand-text mx-3">Geshos 404</div>
     </a>
 
     <!-- Divider -->
@@ -22,8 +22,8 @@
     <!-- Nav Item - Profil Hotel -->
     <li class="nav-item {{ Request::is('profil*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('/profil') }}">
-            <i class="fas fa-fw fa-hotel"></i>
-            <span>Profil Hotel</span></a>
+            <i class="fas fa-fw fa-home"></i>
+            <span>Profil Geshos</span></a>
     </li>
 
     <!-- Divider -->
